@@ -1,0 +1,29 @@
+# ashton weeks
+# awy9n@umsystem.edu
+# ALGORITHM: this program takes three arguments from the user (hours, minutes, seconds) then increments the
+# seconds by 1 every time a real world second passed. The time function allows that to happen. 
+# Clock, the class, does the addition by its 'tick' function, then increases hours and
+# minutes accordingingly.
+# the __str__ checks what kind of clock type it is (24 hours or 12 hours), then modifies the output 
+
+import time
+from Clock import * 
+
+__name___ = "__main__"
+
+hrs = int(input("What's the current hours? ==>"))
+mins = int(input("What's the current minute? ==>"))
+secs = int(input("What's the current second? ==>"))
+  
+clock = Clock(hrs, mins, secs, 1)
+
+while True:
+  print(clock)
+  clock.tick()
+  time.sleep(1)
+  
+ # special error handing: on this assignment i added a display_time + display hours for the 12 hour clock function,
+ # display_time is a temporary variable that allows me to subtract 12 in order to keep the output correct,
+ # but allows hours to stay consistent & to be incremented normally, the display_time is what determines 'am' or 
+ # 'pm' and is based off of hours being within a certain interval. there are two other 'else' statements that just
+ # ensure the right time is being displayed (ie 12 am instead of 0:00 am)
